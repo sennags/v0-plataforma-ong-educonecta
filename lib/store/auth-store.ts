@@ -1,5 +1,6 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
+import { useEffect, useState } from "react"
 import type { User, Aluno, Professor, UserRole } from "@/lib/types"
 import { alunoMock, professoresMock } from "@/lib/data/mock-data"
 
@@ -8,12 +9,14 @@ interface AuthState {
   role: UserRole | null
   isAuthenticated: boolean
   isLoading: boolean
+  _hasHydrated: boolean
   
   // Actions
   loginAsAluno: (cpf: string, senha: string) => Promise<boolean>
   loginAsProfessor: () => Promise<boolean>
   logout: () => void
   setUser: (user: User) => void
+  setHasHydrated: (state: boolean) => void
   
   // Para testes - alternar entre papéis
   switchRole: (role: UserRole) => void
@@ -22,6 +25,7 @@ interface AuthState {
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
+      _hasHydrated: false,
       user: null,
       role: null,
       isAuthenticated: false,
@@ -80,6 +84,10 @@ export const useAuthStore = create<AuthState>()(
         })
       },
 
+      setHasHydrated: (state: boolean) => {
+        set({ _hasHydrated: state })
+      },
+
       switchRole: (role: UserRole) => {
         if (role === "aluno") {
           set({
@@ -98,6 +106,9 @@ export const useAuthStore = create<AuthState>()(
     }),
     {
       name: "educonecta-auth",
+      onRehydrateStorage: () => (state) => {
+        state?.setHasHydrated(true)
+      },
     }
   )
 )
