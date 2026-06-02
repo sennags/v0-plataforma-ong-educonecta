@@ -51,14 +51,6 @@ Você pode começar a editar a página modificando `app/page.tsx`. A página ser
 
 ## Ambiente de Desenvolvimento
 
-Este repositório está vinculado a um projeto [v0](https://v0.app). Você pode continuar desenvolvendo visitando o link abaixo. Inicie novos chats para fazer alterações, e o v0 enviará commits diretamente para este repositório.
+Este repositório está vinculado a um projeto [v0](https://v0.app).
 
 [Acessar projeto no v0 →](https://v0.app/chat/plataforma-ong-educonecta-lfrZ7X2syDS?ref=IU21YG)
-
-## Recursos Adicionais
-
-Para aprender mais sobre as tecnologias utilizadas neste projeto:
-
-- [Documentação Next.js](https://nextjs.org/docs) - Saiba mais sobre os recursos do Next.js
-- [Learn Next.js](https://nextjs.org/learn) - Tutorial interativo do Next.js
-- [Documentação v0](https://v0.app/docs) - Aprenda sobre v0 e como utilizá-lo
