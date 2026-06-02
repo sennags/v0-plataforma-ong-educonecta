@@ -40,6 +40,55 @@ export const alunoMock: Aluno = {
   },
 }
 
+// Array de alunos para uso em listas
+export const alunosMock: Aluno[] = [
+  alunoMock,
+  {
+    ...alunoMock,
+    id: "aluno-2",
+    nome: "João Pedro Santos",
+    email: "joao.santos@email.com",
+    cpf: "987.654.321-00",
+    serie: "7º ano",
+    avatar: "/avatars/joao.jpg",
+    metricas: {
+      totalAulas: 0,
+      taxaPresenca: 0,
+      primeiraVez: true,
+    },
+  },
+  {
+    ...alunoMock,
+    id: "aluno-3",
+    nome: "Larissa Oliveira",
+    email: "larissa.oliveira@email.com",
+    cpf: "456.789.123-00",
+    serie: "1º ano EM",
+    avatar: "/avatars/larissa.jpg",
+    metricas: {
+      totalAulas: 5,
+      taxaPresenca: 100,
+      ultimaAula: "2024-01-10",
+      primeiraVez: false,
+    },
+  },
+  {
+    ...alunoMock,
+    id: "aluno-4",
+    nome: "Pedro Henrique Costa",
+    email: "pedro.costa@email.com",
+    cpf: "789.123.456-00",
+    serie: "8º ano",
+    avatar: "/avatars/pedro.jpg",
+    metricas: {
+      totalAulas: 8,
+      taxaPresenca: 87,
+      ultimaAula: "2024-01-12",
+      primeiraVez: false,
+    },
+  },
+]
+
 export const professoresMock: Professor[] = [
   {
     id: "prof-1",
