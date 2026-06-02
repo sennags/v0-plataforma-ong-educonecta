@@ -1,33 +1,64 @@
-# v0-plataforma-ong-educonecta
+# ONG EduConecta
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+## Descrição da Aplicação
 
-## Built with v0
+A plataforma **EduConecta** é um projeto acadêmico desenvolvido para promover educação inclusiva e acessível a pessoas em situação de vulnerabilidade social. Trata-se de uma iniciativa que conecta educadores, professores certificados e voluntários dispostos a compartilhar seus conhecimentos com indivíduos que possuem dificuldades de acesso à educação formal.
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+A aplicação funciona como um intermediário entre aqueles que possuem expertise educacional e aqueles que necessitam de apoio pedagógico, criando um ecossistema colaborativo onde a educação atua como ferramenta transformadora. Por meio dessa plataforma, é possível:
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_WECAdSQXyq3dyGDAvriKzDk01lQC)
+- **Para alunos**: Acessar conteúdo educacional de qualidade, independentemente de sua condição socioeconômica
+- **Para professores e voluntários**: Contribuir de forma organizada, documentada e reconhecida, através de certificações que validem seu trabalho voluntário
+- **Para a sociedade**: Fortalecer a educação como direito fundamental e reduzir desigualdades educacionais
 
-## Getting Started
+## Informações do Projeto
 
-First, run the development server:
+**Instituição**: Universidade Estadual da Paraíba (UNIPE)  
+**Campus**: João Pessoa, Paraíba  
+**Curso**: Engenharia de Software  
+**Período**: 1º Período  
+
+### Equipe de Desenvolvimento
+
+- Sillas Gabriel
+- Cíntia Ritse
+- Joerlândio Filho
+- Jhonata Lucas
+
+## Stack Tecnológico
+
+Este é um projeto [Next.js](https://nextjs.org) bootstrapped com [v0](https://v0.app).
+
+**Composição linguística do repositório:**
+- TypeScript: 97.5%
+- CSS: 2.4%
+- JavaScript: 0.1%
+
+## Começando
+
+Para executar o servidor de desenvolvimento localmente:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar a aplicação.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Você pode começar a editar a página modificando `app/page.tsx`. A página será atualizada automaticamente conforme você realiza as edições.
 
-## Learn More
+## Ambiente de Desenvolvimento
 
-To learn more, take a look at the following resources:
+Este repositório está vinculado a um projeto [v0](https://v0.app). Você pode continuar desenvolvendo visitando o link abaixo. Inicie novos chats para fazer alterações, e o v0 enviará commits diretamente para este repositório.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+[Acessar projeto no v0 →](https://v0.app/chat/plataforma-ong-educonecta-lfrZ7X2syDS?ref=IU21YG)
+
+## Recursos Adicionais
+
+Para aprender mais sobre as tecnologias utilizadas neste projeto:
+
+- [Documentação Next.js](https://nextjs.org/docs) - Saiba mais sobre os recursos do Next.js
+- [Learn Next.js](https://nextjs.org/learn) - Tutorial interativo do Next.js
+- [Documentação v0](https://v0.app/docs) - Aprenda sobre v0 e como utilizá-lo
