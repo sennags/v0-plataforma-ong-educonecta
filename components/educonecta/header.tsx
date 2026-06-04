@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { ArrowLeft, Bell, Menu } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -42,6 +43,8 @@ export function Header({
     .join("")
     .toUpperCase() || "?"
 
+  const dashboardPath = role === "professor" ? "/professor/dashboard" : "/aluno/dashboard"
+
   const handleLogout = () => {
     logout()
     router.push("/login")
@@ -56,15 +59,13 @@ export function Header({
     >
       <div className="flex items-center gap-2">
         {showBack && (
-          <Button
-            variant="ghost"
-            size="icon"
-            className="shrink-0"
-            onClick={() => router.back()}
+          <Link
+            href={dashboardPath}
+            className="inline-flex items-center justify-center shrink-0 h-10 w-10 rounded-md hover:bg-accent hover:text-accent-foreground"
           >
             <ArrowLeft className="h-5 w-5" />
             <span className="sr-only">Voltar</span>
-          </Button>
+          </Link>
         )}
         {showLogo && <Logo size="sm" />}
         {title && (
