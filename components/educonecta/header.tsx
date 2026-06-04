@@ -105,10 +105,17 @@ export function Header({
               >
                 Meu Perfil
               </DropdownMenuItem>
+              {role === "professor" && (
+                <DropdownMenuItem
+                  onClick={() => router.push("/professor/certificados")}
+                >
+                  Meus Certificados
+                </DropdownMenuItem>
+              )}
               <DropdownMenuItem
                 onClick={() => router.push(`/${role}/configuracoes`)}
               >
-                Configurações
+                Configuracoes
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem
