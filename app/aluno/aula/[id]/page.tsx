@@ -22,7 +22,7 @@ import {
   Play,
   BookOpen
 } from "lucide-react"
-import { professoresMock, materiasMock } from "@/lib/data/mock-data"
+import { professoresMock, materias } from "@/lib/data/mock-data"
 import Link from "next/link"
 
 interface PageProps {
@@ -62,7 +62,7 @@ export default function AulaPage({ params }: PageProps) {
   const router = useRouter()
   const [tarefas, setTarefas] = useState(aulaMock.tarefas)
   
-  const materia = materiasMock.find(m => m.nome === aulaMock.materia)
+  const materia = materias.find(m => m.nome === aulaMock.materia)
   const progressoGeral = (aulaMock.aulasCompletadas / aulaMock.totalAulas) * 100
   const tarefasConcluidas = tarefas.filter(t => t.concluida).length
   const progressoTarefas = (tarefasConcluidas / tarefas.length) * 100

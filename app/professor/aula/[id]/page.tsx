@@ -24,7 +24,7 @@ import {
   CheckCircle2,
   MoreVertical
 } from "lucide-react"
-import { alunosMock, materiasMock } from "@/lib/data/mock-data"
+import { alunoMock, materias } from "@/lib/data/mock-data"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -44,6 +44,9 @@ import { toast } from "sonner"
 interface PageProps {
   params: Promise<{ id: string }>
 }
+
+// Criar lista de alunos mock
+const alunosMock = [alunoMock, { ...alunoMock, id: "aluno-2", nome: "João Silva" }, { ...alunoMock, id: "aluno-3", nome: "Ana Costa" }]
 
 // Mock de aula do professor
 const aulaMock = {
@@ -73,7 +76,7 @@ export default function AulaProfessorPage({ params }: PageProps) {
   const [novoAviso, setNovoAviso] = useState("")
   const [dialogOpen, setDialogOpen] = useState(false)
   
-  const materia = materiasMock.find(m => m.nome === aulaMock.materia)
+  const materia = materias.find(m => m.nome === aulaMock.materia)
   const progressoGeral = (aulaMock.aulasCompletadas / aulaMock.totalAulas) * 100
 
   const formatDateTime = (dateStr: string) => {

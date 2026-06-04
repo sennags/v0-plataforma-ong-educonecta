@@ -18,7 +18,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp"
 import { useAuthStore } from "@/lib/store/auth-store"
-import { professorMock } from "@/lib/data/mock-data"
+import { professoresMock } from "@/lib/data/mock-data"
 import { ArrowLeft, ArrowRight, Check, Eye, EyeOff, Loader2 } from "lucide-react"
 import Link from "next/link"
 
@@ -111,7 +111,7 @@ export default function CadastroProfessorPage() {
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
     const novoProfessor = {
-      ...professorMock,
+      ...professoresMock[0],
       id: `professor-${Date.now()}`,
       nome: step1Data?.nome || "",
       email: step1Data?.email || "",

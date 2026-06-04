@@ -12,7 +12,7 @@ import { RatingStars } from "@/components/educonecta/rating-stars"
 import { Badge } from "@/components/ui/badge"
 import { toast } from "sonner"
 import { CheckCircle2, ChevronRight } from "lucide-react"
-import { alunosMock } from "@/lib/data/mock-data"
+import { alunoMock } from "@/lib/data/mock-data"
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -25,6 +25,9 @@ const criteriosAvaliacao = [
   { id: "evolucao", label: "Evolução no aprendizado" },
   { id: "comunicacao", label: "Comunicação e respeito" },
 ]
+
+// Criar lista de alunos mock para avaliação
+const alunosMock = [alunoMock, { ...alunoMock, id: "aluno-2", nome: "João Silva" }, { ...alunoMock, id: "aluno-3", nome: "Ana Costa" }]
 
 interface AvaliacaoAluno {
   alunoId: string
