@@ -224,6 +224,13 @@ export default function LoginPage() {
             )}
             Continuar com Google
           </Button>
+
+          <p className="text-center text-sm text-muted-foreground">
+            Quer se cadastrar?{" "}
+            <Link href="/professor/cadastro" className="text-primary hover:underline">
+              Criar conta de professor
+            </Link>
+          </p>
         </div>
       </div>
     </main>
