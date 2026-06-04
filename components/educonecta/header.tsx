@@ -74,9 +74,14 @@ export function Header({
 
       <div className="flex items-center gap-1">
         {showNotifications && (
-          <Button variant="ghost" size="icon" className="relative">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="relative"
+            onClick={() => router.push("/notificacoes")}
+          >
             <Bell className="h-5 w-5" />
-            <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-accent" />
+            <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-destructive" />
             <span className="sr-only">Notificações</span>
           </Button>
         )}
@@ -105,10 +110,17 @@ export function Header({
               >
                 Meu Perfil
               </DropdownMenuItem>
+              {role === "professor" && (
+                <DropdownMenuItem
+                  onClick={() => router.push("/professor/certificados")}
+                >
+                  Meus Certificados
+                </DropdownMenuItem>
+              )}
               <DropdownMenuItem
                 onClick={() => router.push(`/${role}/configuracoes`)}
               >
-                Configurações
+                Configuracoes
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem

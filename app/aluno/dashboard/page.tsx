@@ -1,29 +1,43 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Header } from "@/components/educonecta/header"
 import { BottomNav } from "@/components/educonecta/bottom-nav"
 import { SubjectCard } from "@/components/educonecta/subject-card"
 import { TeacherCard } from "@/components/educonecta/teacher-card"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { useAuthStore, useAluno } from "@/lib/store/auth-store"
 import { materias, professoresMock, aulasMock } from "@/lib/data/mock-data"
-import { BookOpen, Calendar, ChevronRight, Search } from "lucide-react"
+import { Calendar, ChevronRight, Search, Loader2 } from "lucide-react"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import Link from "next/link"
 
 export default function AlunoDashboardPage() {
   const router = useRouter()
-  const { isAuthenticated } = useAuthStore()
+  const { isAuthenticated, _hasHydrated } = useAuthStore()
   const aluno = useAluno()
+  const [isChecking, setIsChecking] = useState(true)
 
-  // Redireciona se não autenticado
-  if (!isAuthenticated || !aluno) {
-    if (typeof window !== "undefined") {
-      router.replace("/login")
+  useEffect(() => {
+    if (_hasHydrated) {
+      if (!isAuthenticated || !aluno) {
+        router.replace("/login")
+      }
+      setIsChecking(false)
     }
+  }, [_hasHydrated, isAuthenticated, aluno, router])
+
+  if (!_hasHydrated || isChecking) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    )
+  }
+
+  if (!isAuthenticated || !aluno) {
     return null
   }
 
@@ -53,14 +67,13 @@ export default function AlunoDashboardPage() {
         </div>
 
         {/* Busca rápida */}
-        <Button
-          variant="outline"
-          className="w-full justify-start text-muted-foreground"
+        <div
+          className="flex items-center w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-muted-foreground cursor-pointer hover:bg-accent"
           onClick={() => router.push("/aluno/buscar")}
         >
           <Search className="mr-2 h-4 w-4" />
           Buscar matéria ou professor...
-        </Button>
+        </div>
 
         {/* Próxima aula */}
         {aulasAgendadas.length > 0 && (
@@ -145,28 +158,7 @@ export default function AlunoDashboardPage() {
           </div>
         </section>
 
-        {/* CTA: Preciso de ajuda */}
-        <Card className="border-primary/20 bg-primary/5">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <BookOpen className="h-6 w-6 text-primary" />
-              </div>
-              <div className="flex-1">
-                <p className="font-semibold">Precisa de ajuda?</p>
-                <p className="text-sm text-muted-foreground">
-                  Descreva sua dúvida e encontre um professor
-                </p>
-              </div>
-            </div>
-            <Button
-              className="mt-3 w-full"
-              onClick={() => router.push("/aluno/buscar")}
-            >
-              Pedir ajuda agora
-            </Button>
-          </CardContent>
-        </Card>
+        
       </main>
 
       <BottomNav />

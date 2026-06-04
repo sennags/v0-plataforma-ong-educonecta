@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Header } from "@/components/educonecta/header"
 import { BottomNav } from "@/components/educonecta/bottom-nav"
@@ -9,19 +10,34 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useAuthStore, useProfessor } from "@/lib/store/auth-store"
 import { solicitacoesMock, aulasMock } from "@/lib/data/mock-data"
-import { Users, BookOpen, Clock, ChevronRight, Calendar } from "lucide-react"
+import { Users, BookOpen, Clock, ChevronRight, Calendar, Loader2 } from "lucide-react"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
 
 export default function ProfessorDashboardPage() {
   const router = useRouter()
-  const { isAuthenticated } = useAuthStore()
+  const { isAuthenticated, _hasHydrated } = useAuthStore()
   const professor = useProfessor()
+  const [isChecking, setIsChecking] = useState(true)
+
+  useEffect(() => {
+    if (_hasHydrated) {
+      if (!isAuthenticated || !professor) {
+        router.replace("/login")
+      }
+      setIsChecking(false)
+    }
+  }, [_hasHydrated, isAuthenticated, professor, router])
+
+  if (!_hasHydrated || isChecking) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    )
+  }
 
   if (!isAuthenticated || !professor) {
-    if (typeof window !== "undefined") {
-      router.replace("/login")
-    }
     return null
   }
 
