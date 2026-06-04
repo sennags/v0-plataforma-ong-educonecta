@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Header } from "@/components/educonecta/header"
 import { BottomNav } from "@/components/educonecta/bottom-nav"
@@ -18,10 +19,13 @@ export default function ProfessorDashboardPage() {
   const { isAuthenticated } = useAuthStore()
   const professor = useProfessor()
 
-  if (!isAuthenticated || !professor) {
-    if (typeof window !== "undefined") {
+  useEffect(() => {
+    if (!isAuthenticated || !professor) {
       router.replace("/login")
     }
+  }, [isAuthenticated, professor, router])
+
+  if (!isAuthenticated || !professor) {
     return null
   }
 

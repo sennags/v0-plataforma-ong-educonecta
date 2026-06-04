@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Header } from "@/components/educonecta/header"
 import { BottomNav } from "@/components/educonecta/bottom-nav"
@@ -20,10 +21,13 @@ export default function AlunoDashboardPage() {
   const aluno = useAluno()
 
   // Redireciona se não autenticado
-  if (!isAuthenticated || !aluno) {
-    if (typeof window !== "undefined") {
+  useEffect(() => {
+    if (!isAuthenticated || !aluno) {
       router.replace("/login")
     }
+  }, [isAuthenticated, aluno, router])
+
+  if (!isAuthenticated || !aluno) {
     return null
   }
 
