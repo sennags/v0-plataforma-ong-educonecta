@@ -130,7 +130,7 @@ export default function AlunoDashboardPage() {
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-3">
-            {materias.slice(0, 6).map((materia) => (
+            {materias.slice(0, 3).map((materia) => (
               <SubjectCard
                 key={materia.id}
                 materia={materia}
