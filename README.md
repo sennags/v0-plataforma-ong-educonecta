@@ -49,7 +49,7 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visual
 
 Você pode começar a editar a página modificando `app/page.tsx`. A página será atualizada automaticamente conforme você realiza as edições.
 
-## Ambiente de Desenvolvimento
+## Ambiente de Desenvolvimento.
 
 Este repositório está vinculado a um projeto [v0](https://v0.app).
 
