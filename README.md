@@ -33,24 +33,6 @@ Este é um projeto [Next.js](https://nextjs.org) bootstrapped com [v0](https://v
 - CSS: 2.4%
 - JavaScript: 0.1%
 
-## Começando
-
-Para executar o servidor de desenvolvimento localmente:
-
-```bash
-npm run dev
-# ou
-yarn dev
-# ou
-pnpm dev
-```
-
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar a aplicação.
-
-Você pode começar a editar a página modificando `app/page.tsx`. A página será atualizada automaticamente conforme você realiza as edições.
-
 ## Ambiente de Desenvolvimento.
 
 Este repositório está vinculado a um projeto [v0](https://v0.app).
-
-[Acessar projeto no v0 →](https://v0.app/chat/plataforma-ong-educonecta-lfrZ7X2syDS?ref=IU21YG)
